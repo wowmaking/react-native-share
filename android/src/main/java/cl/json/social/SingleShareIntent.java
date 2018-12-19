@@ -34,7 +34,7 @@ public abstract class SingleShareIntent extends ShareIntent {
         if(getPackage() != null || getDefaultWebLink() != null || getPlayStoreLink() != null) {
             if(this.isPackageInstalled(getPackage(), reactContext)) {
                 System.out.println("INSTALLED");
-                if (getClass() != null) {
+                if (getComponentClass() != null) {
                     ComponentName cn = new ComponentName(getPackage(), getComponentClass());
                     this.getIntent().setComponent(cn);
                 } else {
