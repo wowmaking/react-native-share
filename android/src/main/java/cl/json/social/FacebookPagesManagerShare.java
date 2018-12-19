@@ -36,4 +36,7 @@ public class FacebookPagesManagerShare extends SingleShareIntent {
     protected String getPlayStoreLink() {
         return null;
     }
+
+    @Override
+    protected String getComponentClass() { return null; }
 }

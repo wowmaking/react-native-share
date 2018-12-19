@@ -42,4 +42,7 @@ public class InstagramShare extends SingleShareIntent {
     protected String getPlayStoreLink() {
         return PLAY_STORE_LINK;
     }
+
+    @Override
+    protected String getComponentClass() { return null; }
 }

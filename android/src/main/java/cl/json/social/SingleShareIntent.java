@@ -1,6 +1,7 @@
 package cl.json.social;
 
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -33,7 +34,12 @@ public abstract class SingleShareIntent extends ShareIntent {
         if(getPackage() != null || getDefaultWebLink() != null || getPlayStoreLink() != null) {
             if(this.isPackageInstalled(getPackage(), reactContext)) {
                 System.out.println("INSTALLED");
-                this.getIntent().setPackage(getPackage());
+                if (getClass() != null) {
+                    ComponentName cn = new ComponentName(getPackage(), getComponentClass());
+                    this.getIntent().setComponent(cn);
+                } else {
+                    this.getIntent().setPackage(getPackage());
+                }
                 super.open(options);
             } else {
                 System.out.println("NOT INSTALLED");

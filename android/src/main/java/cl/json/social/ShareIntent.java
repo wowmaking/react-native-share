@@ -166,4 +166,5 @@ public abstract class ShareIntent {
     protected abstract String getPackage();
     protected abstract String getDefaultWebLink();
     protected abstract String getPlayStoreLink();
+    protected abstract String getComponentClass();
 }
