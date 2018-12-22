@@ -7,8 +7,6 @@
     "url": "git+https://github.com/react-native-community/react-native-share.git"
   },
   "devDependencies": {
-    "@commitlint/cli": "^6.1.0",
-    "@commitlint/config-conventional": "^6.1.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.17.0",
     "eslint-plugin-flowtype": "^2.46.2",
@@ -17,11 +15,9 @@
     "eslint-plugin-react-native": "^3.2.0",
     "flow-bin": "^0.77.0",
     "generate-changelog": "1.7.0",
-    "husky": "^0.14.3",
     "idx": "^2.4.0",
     "lint-staged": "^7.0.0",
     "minimist": "1.2.0",
-    "pre-commit": "^1.2.2",
     "prettier": "^1.12.0",
     "react": "16.3.1",
     "react-native": "0.55.2",
@@ -53,7 +49,6 @@
   "pre-commit": "lint:staged",
   "readmeFilename": "README.md",
   "scripts": {
-    "commitmsg": "commitlint -e $GIT_PARAMS",
     "lint": "eslint src --max-warnings=0",
     "lint:staged": "lint-staged",
     "prettier": "prettier --write --single-quote true --trailing-comma all --print-width 100",
