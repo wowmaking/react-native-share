@@ -34,4 +34,7 @@ public class GenericShare extends ShareIntent {
     protected String getPlayStoreLink() {
         return null;
     }
+
+    @Override
+    protected String getComponentClass() { return null; }
 }

@@ -21,6 +21,7 @@ import cl.json.social.FacebookPagesManagerShare;
 import cl.json.social.GenericShare;
 import cl.json.social.GooglePlusShare;
 import cl.json.social.ShareIntent;
+import cl.json.social.SnapchatShare;
 import cl.json.social.TwitterShare;
 import cl.json.social.WhatsAppShare;
 import cl.json.social.InstagramShare;
@@ -38,7 +39,8 @@ public class RNShareModule extends ReactContextBaseJavaModule {
         instagram,
         googleplus,
         email,
-        pinterest;
+        pinterest,
+        snapchat;
 
         public static ShareIntent getShareClass(String social, ReactApplicationContext reactContext) {
             SHARES share = valueOf(social);
@@ -61,6 +63,8 @@ public class RNShareModule extends ReactContextBaseJavaModule {
                     return new EmailShare(reactContext);
                 case pinterest:
                     return new PinterestShare(reactContext);
+                case snapchat:
+                    return new SnapchatShare(reactContext);
                 default:
                     return null;
             }

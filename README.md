@@ -221,6 +221,7 @@ Share.shareSingle(shareOptions);
 | **GOOGLEPLUS** | yes   | yes | no |
 | **EMAIL** | yes   | yes | no |
 | **PINTEREST** | yes   | no | no |
+| **SNAPCHAT** | yes   | no | no |
 
 ## How it looks:
 
