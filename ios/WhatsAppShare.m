@@ -39,12 +39,26 @@ RCT_EXPORT_MODULE();
 
         if ([options[@"url"] rangeOfString:@"wam"].location != NSNotFound || [options[@"url"] rangeOfString:@"mp4"].location != NSNotFound) {
             NSLog(@"Sending whatsapp movie");
-            documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:options[@"url"]]];
+            
+            NSURL *movieFileURL = [RCTConvert NSURL:options[@"url"]];
+            documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:movieFileURL];
             documentInteractionController.UTI = @"net.whatsapp.movie";
             documentInteractionController.delegate = self;
-
-            [documentInteractionController presentOpenInMenuFromRect:CGRectMake(0, 0, 0, 0) inView:[[[[[UIApplication sharedApplication] delegate] window] rootViewController] view] animated:YES];
+            
+            [documentInteractionController presentOpenInMenuFromRect:CGRectMake(0, 0, 0, 0) inView:[[[[application delegate] window] rootViewController] view] animated:YES];
             NSLog(@"Done whatsapp movie");
+            successCallback(@[]);
+        } else if ([options[@"url"] rangeOfString:@"jpg"].location != NSNotFound || [options[@"url"] rangeOfString:@"png"].location != NSNotFound) {
+            NSLog(@"Sending whatsapp image");
+            
+            NSURL *imageFileURL = [RCTConvert NSURL:options[@"url"]];
+            
+            documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:imageFileURL];
+            documentInteractionController.UTI = @"net.whatsapp.image";
+            documentInteractionController.delegate = self;
+            
+            [documentInteractionController presentOpenInMenuFromRect:CGRectMake(0, 0, 0, 0) inView:[[[[application delegate] window] rootViewController] view] animated:YES];
+            NSLog(@"Done whatsapp image");
             successCallback(@[]);
         } else {
             text = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,(CFStringRef) text, NULL,CFSTR("!*'();:@&=+$,/?%#[]"),kCFStringEncodingUTF8));

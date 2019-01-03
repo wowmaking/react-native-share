@@ -16,7 +16,7 @@
     serviceType:(NSString*)serviceType {
 
     NSLog(@"Try open view");
-    if([SLComposeViewController isAvailableForServiceType:serviceType]) {
+    if(true || [SLComposeViewController isAvailableForServiceType:serviceType]) {
 
         SLComposeViewController *composeController = [SLComposeViewController  composeViewControllerForServiceType:serviceType];
 
